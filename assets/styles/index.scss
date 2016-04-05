@@ -21,15 +21,18 @@ h1 {
   @include make-row();
 
   .tile {
-    background: #ffffff;
-    border: 1px gray solid;
-    border-radius: 20px;
-    padding: 50px;
-    margin: auto;
     @include make-md-column(4);
     @include make-sm-column(4);
     @include make-xs-column(4);
     @include make-lg-column(4);
+    background: #ffffff;
+    border: 1px gray solid;
+    border-radius: 20px;
+    height: 100px;
+    width: 100px;
   }
+}
 
+.newGame {
+  text-align: center;
 }
