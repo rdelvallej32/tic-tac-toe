@@ -9,7 +9,12 @@ body {
 
 h1 {
   color: $header-font-color;
-  margin: 0 auto;
+  text-align: center;
+}
+
+.gameboard {
+  height: 400px;
+  max-width: 400px;
 }
 
 .board {
@@ -18,7 +23,9 @@ h1 {
   .tile {
     background: #ffffff;
     border: 1px gray solid;
+    border-radius: 20px;
     padding: 50px;
+    margin: auto;
     @include make-md-column(4);
     @include make-sm-column(4);
     @include make-xs-column(4);
