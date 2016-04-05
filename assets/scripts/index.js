@@ -11,4 +11,5 @@ const gameMove = require('./game/move.js');
 $(() => {
   authEvents.signCheck();
   gameMove.playerMove();
+  gameMove.clearBoard();
 });
