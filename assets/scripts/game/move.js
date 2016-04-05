@@ -1,6 +1,7 @@
 'use strict';
 
-let gameBoard = [];
+let gameBoard = [$('#tile1'),$('#tile2'),$('#tile3'),$('#tile4'),$('#tile5'),$('#tile6'),
+$('#tile7'),$('#tile8'),$('#tile9')];
 
 let currentPlayer = 'x';
 let turn = 0;
@@ -30,6 +31,12 @@ const playerMove = function() {
        currentPlayer = 'x';
        turn+=1;
      }
+
+     if(turn > 4) {
+       for (var i = 0; i < gameBoard.length; i++) {
+         console.log(gameBoard[i]);
+       }
+   }
 
    });
 };
