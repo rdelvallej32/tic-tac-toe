@@ -15,8 +15,19 @@ const signCheck = function() {
     });
 };
 
+const playerX = function() {
+  $('.tile').on('click', function(event) {
+    event.preventDefault();
+    $(this).toggleClass('X');
+
+  });
+
+
+};
+
 
 
 module.exports = {
   signCheck,
+  playerX
 };

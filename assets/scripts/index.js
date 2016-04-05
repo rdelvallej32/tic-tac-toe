@@ -9,4 +9,5 @@ const authEvents = require('./auth/events.js');
 
 $(() => {
   authEvents.signCheck();
+  authEvents.playerX();
 });

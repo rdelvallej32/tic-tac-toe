@@ -7,13 +7,17 @@ body {
   margin: 40px;
 }
 
+h1 {
+  color: $header-font-color;
+  margin: 0 auto;
+}
 
 .board {
   @include make-row();
 
   .tile {
-    background: white;
-    border: 1px solid;
+    background: #ffffff;
+    border: 1px gray solid;
     padding: 50px;
     @include make-md-column(4);
     @include make-sm-column(4);
