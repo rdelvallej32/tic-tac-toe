@@ -1,2 +1,24 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'colors';
+
+body {
+  background-color: $background-color;
+  margin: 40px;
+}
+
+
+.board {
+  @include make-row();
+
+  .tile {
+    background: white;
+    border: 1px solid;
+    padding: 50px;
+    @include make-md-column(4);
+    @include make-sm-column(4);
+    @include make-xs-column(4);
+    @include make-lg-column(4);
+  }
+
+}
