@@ -4,6 +4,7 @@
 // var example = require('./example');
 const authEvents = require('./auth/events.js');
 const gameMove = require('./game/move.js');
+const gameLogic = require('./game/gameplay.js');
 //
 // // use require without a reference to ensure a file is bundled
 // require('./example');
@@ -12,4 +13,5 @@ $(() => {
   authEvents.signCheck();
   gameMove.playerMove();
   gameMove.clearBoard();
+  gameLogic.getBoard();
 });
