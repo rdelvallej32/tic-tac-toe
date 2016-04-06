@@ -1,5 +1,7 @@
 'use strict';
 
+const game = require('./gameplay');
+
 let gameBoard = [$('#tile1'),$('#tile2'),$('#tile3'),$('#tile4'),$('#tile5'),$('#tile6'),
 $('#tile7'),$('#tile8'),$('#tile9')];
 
@@ -34,8 +36,11 @@ const playerMove = function() {
 
      if(turn > 4) {
        for (var i = 0; i < gameBoard.length; i++) {
-         console.log(gameBoard[i]);
+
+         game.checkWin(gameBoard);
+
        }
+
    }
 
    });
