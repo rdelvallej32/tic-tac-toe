@@ -4,7 +4,7 @@ const game = require('./gameplay');
 const user = require('./users');
 
 let gameBoard = [];
-let currentPlayer = 'x';
+let currentPlayer = 'X';
 let turn = 0;
 
 const clearBoard = function() {
@@ -12,30 +12,33 @@ const clearBoard = function() {
     $('.tile').each(function() {
       $(this).text('');
     });
+    $('.tile').each(function() {
+      $(this).removeClass('player1').removeClass('player2').addClass('available');
+    });
   });
 };
 
 const playerMove = function() {
   $('.tile').on('click', function(event) {
     event.preventDefault();
-    if(currentPlayer === 'x' && $(this).hasClass('available')) {
+    if(currentPlayer === 'X' && $(this).hasClass('available')) {
      $(this).removeClass('available').addClass('player1');
-     $(this).text('X').css('font-size', '50px').css('text-align', 'center');
-     currentPlayer = 'o';
+     $(this).text(currentPlayer);
+     currentPlayer = 'O';
      turn+=1;
    }
 
-     else if (currentPlayer === 'o' && $(this).hasClass('available')) {
+     else if (currentPlayer === 'O' && $(this).hasClass('available')) {
        $(this).removeClass('available').addClass('player2');
-       $(this).text('O').css('font-size', '50px').css('text-align', 'center');
-       currentPlayer = 'x';
+       $(this).text(currentPlayer);
+       currentPlayer = 'X';
        turn+=1;
      }
 
      if(turn >= 4) {
-       for(let i = 0; i < game.winArray; i++) {
-        game.winArray[i].every(game.checkWin);
-          console.log();
+       let testArray = game.winArray;
+       for(let i = 0; i < testArray.length; i++) {
+        testArray[i].every(game.checkWin);
        }
      }
 

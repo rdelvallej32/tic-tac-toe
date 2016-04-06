@@ -2,14 +2,14 @@
 
 const game = require('./gameplay');
 
-let topRow = [$('#tile1'), $('#tile2'), $('#tile3')];
-let middleRow = [$('#tile4'), $('#tile5'), $('#tile6')];
-let bottomRow = [$('#tile7'), $('#tile8'), $('#tile9')];
-let firstCol = [$('#tile1'), $('#tile4'), $('#tile7')];
-let secondCol = [$('#tile2'), $('#tile5'), $('#tile8')];
-let thirdCol = [$('#tile3'), $('#tile6'), $('#tile9')];
-let leftDiag = [$('#tile1'), $('#tile5'), $('#tile9')];
-let rightDiag = [$('#tile3'), $('#tile5'), $('#tile7')];
+let topRow = [$('#tile1').text(), $('#tile2').text(), $('#tile3').text()];
+let middleRow = [$('#tile4').text(), $('#tile5').text(), $('#tile6').text()];
+let bottomRow = [$('#tile7').text(), $('#tile8').text(), $('#tile9').text()];
+let firstCol = [$('#tile1').text(), $('#tile4').text(), $('#tile7').text()];
+let secondCol = [$('#tile2').text(), $('#tile5').text(), $('#tile8').text()];
+let thirdCol = [$('#tile3').text(), $('#tile6').text(), $('#tile9').text()];
+let leftDiag = [$('#tile1').text(), $('#tile5').text(), $('#tile9').text()];
+let rightDiag = [$('#tile3').text(), $('#tile5').text(), $('#tile7').text()];
 
 let winArray = [topRow,middleRow,bottomRow,firstCol,secondCol,thirdCol,leftDiag,rightDiag];
 
@@ -17,14 +17,10 @@ let winArray = [topRow,middleRow,bottomRow,firstCol,secondCol,thirdCol,leftDiag,
 
 const checkWin = function(token) {
   for(let i = 0; i < winArray.length; i++) {
-
-    if(token === winArray[i][0] && token === winArray[i][1] && token === winArray[i][2]) {
-      console.log(token);
-      return token; 
+    if(winArray[i][0] === token && winArray[i][1] === token && winArray[i][2] === token) {
+      console.log(token + 'won');
     }
-
-  }
-
+    }
 };
 
 
