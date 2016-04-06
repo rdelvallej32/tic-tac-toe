@@ -3,13 +3,14 @@
 let player1 = {
   token: "X",
   email: "ra",
+  cells: [],
 
 };
 
 let player2 = {
   token: "O",
   email: "ra",
-
+  cells: [],
 };
 
 

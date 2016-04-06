@@ -63,35 +63,35 @@
   <div class="container gameboard">
 
     <div class="board">
-      <div class="tile top-left" id="tile1">
+      <div class="tile top-left available" id="tile1">
 
       </div>
-      <div class="tile top-mid" id="tile2">
+      <div class="tile top-mid available" id="tile2">
 
       </div>
-      <div class="tile top-right" id="tile3">
-
-      </div>
-    </div>
-    <div class="board">
-      <div class="tile middle-left" id="tile4">
-
-      </div>
-      <div class="tile middle-mid" id="tile5">
-
-      </div>
-      <div class="tile middle-right" id="tile6">
+      <div class="tile top-right available" id="tile3">
 
       </div>
     </div>
     <div class="board">
-      <div class="tile bottom-left" id="tile7">
+      <div class="tile middle-left available" id="tile4">
 
       </div>
-      <div class="tile bottom-mid" id="tile8">
+      <div class="tile middle-mid available" id="tile5">
 
       </div>
-      <div class="tile bottom-right" id=id="tile9">
+      <div class="tile middle-right available" id="tile6">
+
+      </div>
+    </div>
+    <div class="board">
+      <div class="tile bottom-left available" id="tile7">
+
+      </div>
+      <div class="tile bottom-mid available" id="tile8">
+
+      </div>
+      <div class="tile bottom-right available" id="tile9">
 
       </div>
     </div>
@@ -126,6 +126,14 @@
             <input type="email" class="form-control" name="credentials[email]" placeholder="Email">
             <input type="password" class="form-control" name="credentials[password]"placeholder="Password">
             <button type="submit">Sign Up</button>
+          </div>
+        </form>
+        <form class="form-inline " id="change-password">
+          <div class="form-group    ">
+            <legend>Forgot Your Password?</legend>
+            <input type="password" class="form-control" name="passwords[old]"placeholder="Old Password">
+            <input type="password" class="form-control" name="passwords[new]"placeholder="New Password">
+            <button type="submit">Change Password</button>
           </div>
         </form>
       </div>
