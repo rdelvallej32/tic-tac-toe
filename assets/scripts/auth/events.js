@@ -29,8 +29,13 @@ const signCheck = function() {
 });
 };
 
-const gameCheck = function() {
-
+  const gameCheck = function() {
+    $('#eraseBoard').on('submit', function(event){
+      event.preventDefault(); ///what data do I put here for user?
+      let data = "data";
+      console.log(data);
+      authApi.gameCreate(authUi.createGameSuccess, authUi.failure, data);
+  });
 
 
 
@@ -41,4 +46,5 @@ const gameCheck = function() {
 
 module.exports = {
   signCheck,
+  gameCheck,
 };

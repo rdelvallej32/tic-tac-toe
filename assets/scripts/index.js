@@ -11,6 +11,7 @@ const gameLogic = require('./game/gameplay.js');
 
 $(() => {
   authEvents.signCheck();
+  authEvents.gameCheck();
   gameMove.playerMove();
   gameMove.clearBoard();
 });

@@ -57,6 +57,7 @@ const gameCreate = (success, failure, data) => {
     method: "POST",
     url: app.api + '/games',
     data,
+    dataProcessing: false,
     headers: {
       Authorization: 'Token token='+ app.user.token,
     },
@@ -70,4 +71,5 @@ module.exports = {
   signIn,
   signOut,
   passwordChange,
+  gameCreate,
 };
