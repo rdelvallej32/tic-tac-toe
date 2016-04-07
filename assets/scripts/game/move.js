@@ -9,16 +9,33 @@ let turn = 0;
 let players = ['player1', 'player2'];
 let playerIcon = ['X', 'O'];
 
-//counts clicks & alternates players
-  $('.available').on('click', function(){
-    let currentTile = $(this);
-      if (turn % 2 === 0) {
-        currentPlayer = players[0];
-      } else {
-        currentPlayer = players[1];
+// //counts clicks & alternates players
+//   $('.board').one('click', function(){
+//       if (turn % 2 === 0) {
+//         currentPlayer = players[0];
+//       } else {
+//         currentPlayer = players[1];
+//       }
+//       console.log(turn);
+//   });
+
+  const checkWin = function(gameBoard) {
+    let win = false;
+        if (currentPlayer === gameBoard[0] && currentPlayer === gameBoard[1] && currentPlayer === gameBoard[2] ||
+            currentPlayer === gameBoard[3] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[5] ||
+            currentPlayer === gameBoard[6] && currentPlayer === gameBoard[7] && currentPlayer === gameBoard[8] ||
+            currentPlayer === gameBoard[0] && currentPlayer === gameBoard[3] && currentPlayer === gameBoard[6] ||
+            currentPlayer === gameBoard[1] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[7] ||
+            currentPlayer === gameBoard[2] && currentPlayer === gameBoard[5] && currentPlayer === gameBoard[8] ||
+            currentPlayer === gameBoard[0] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[8] ||
+            currentPlayer === gameBoard[2] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[6]){
+
+        console.log("You win " + 'player');
+        win = true;
+          $('.tile').off('click');
       }
-      console.log(turn);
-  });
+
+    };
 
 //changes block color on click & adds player class (x or o)
 
@@ -60,32 +77,48 @@ const clearBoard = function() {
 };
 
 const playerMove = function() {
-  $('.tile').on('click', function(){
-  let currentTile = $(this);
-  if (currentTile.hasClass('available')) {
-    currentTile.removeClass('available').addClass('player');
-  if (currentPlayer === 'player1') {
-    currentTile.addClass('player1');
-    $(this).text('X');
-    gameBoard[$(this).attr('id')] = playerIcon[0];
-      turn++;
-  }else {
-    currentTile.addClass('player2');
-    currentTile.text('O');
-    gameBoard[$(this).attr('id')] = playerIcon[1];
-    console.log(gameBoard);
-      turn++;
+  $('.tile').one('click', function(){
+    if(turn % 2 === 0) {
+      currentPlayer = playerIcon[0];
     }
-  }
-  if(turn >= 4) {
-    for(let i = 0; i < gameBoard.length; i++) {
-
-      game.checkWin(gameBoard[i]);
+    else {
+      currentPlayer = playerIcon[1];
     }
-  }
+    let currentTile = $(this);
+      console.log(currentPlayer);
+      console.log(turn);
+      currentTile.text(currentPlayer);
+      $(this).data('gameBoard', currentPlayer);
+      let attrId = $(this).attr('id');
+      gameBoard[attrId] = currentPlayer;
+      // console.log(currentTile.attr('id'));
+      // console.log(currentTile.attr('class'));
+      console.log(gameBoard);
+      currentTile.text(currentPlayer);
+        turn++;
+      checkWin(gameBoard);
+    });
+  };
 
-});
-};
+  // let currentTile = $(this);
+  // if (currentTile.hasClass('available')) {
+  //   currentTile.removeClass('available').addClass('player');
+  // if (currentPlayer === 'player1') {
+  //   currentTile.addClass('player1');
+  //   $(this).text('X');
+  //   gameBoard[$(this).attr('id')] = playerIcon[0];
+  //     turn++;
+  // }else {
+  //   currentTile.addClass('player2');
+  //   currentTile.text('O');
+  //   gameBoard[$(this).attr('id')] = playerIcon[1];
+  //   console.log(gameBoard);
+  //     turn++;
+  //   }
+  // }
+  //     checkWin(gameBoard);
+  //   });
+  // };
 
 // const playerMove = function() {
 //   $('.tile').on('click', function(event) {
