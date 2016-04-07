@@ -29,6 +29,16 @@ const signCheck = function() {
 });
 };
 
+const gameCheck = function() {
+
+
+
+
+
+
+
+};
+
 module.exports = {
   signCheck,
 };
