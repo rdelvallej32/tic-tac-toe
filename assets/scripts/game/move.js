@@ -1,8 +1,8 @@
 'use strict';
 
-const app = require('../app-data.js');
-const api = require('../auth/api.js');
-const ui = require('../auth/ui.js');
+const app = require('../app-data');
+const api = require('../auth/api');
+const ui = require('../auth/ui');
 
 let gameBoard = ['','','','','','','','',''];
 let currentPlayer = '';
@@ -46,15 +46,19 @@ const playerMove = function() {
     }
     turn++;
     let currentTile = $(this);
-      currentTile.text(currentPlayer); ///what is this doing?
-      $(this).data('gameBoard', currentPlayer); ///what is happening
+      currentTile.text(currentPlayer);
+      $(this).data('gameBoard', currentPlayer);
       let attrId = $(this).attr('id');
       gameBoard[attrId] = currentPlayer;
-      console.log(currentTile.attr('id'));
-      console.log(currentTile.data('gameBoard'));
+      console.log(gameBoard[attrId]);
+      console.log(attrId);
       console.log(gameBoard);
       currentTile.text(currentPlayer);
+      debugger;
+      app.index = $(this).attr('id');
+      app.value = currentPlayer;
       // console.log(api.updateGame(ui.success, ui.failure));
+      api.updateGame(ui.success, ui.failure); ///I'm calling the function here
       checkWin(gameBoard);
       checkTie(gameBoard);
 
