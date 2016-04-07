@@ -13,5 +13,4 @@ $(() => {
   authEvents.signCheck();
   gameMove.playerMove();
   gameMove.clearBoard();
-  gameLogic.getBoard();
 });

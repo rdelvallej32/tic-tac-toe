@@ -14,52 +14,8 @@ let rightDiag = [$('#3').val(), $('#5').val(), $('#7').val()];
 
 };
 
-let gameBoard = game.gameBoard;
-
-const checkWin = function(playerIcon) {
-  debugger;
-      if (playerIcon === gameBoard[0] && playerIcon === gameBoard[1] && playerIcon === gameBoard[2] ||
-          playerIcon === gameBoard[3] && playerIcon === gameBoard[4] && playerIcon === gameBoard[5] ||
-          playerIcon === gameBoard[6] && playerIcon === gameBoard[7] && playerIcon === gameBoard[8] ||
-          playerIcon === gameBoard[0] && playerIcon === gameBoard[3] && playerIcon === gameBoard[6] ||
-          playerIcon === gameBoard[1] && playerIcon === gameBoard[4] && playerIcon === gameBoard[7] ||
-          playerIcon === gameBoard[2] && playerIcon === gameBoard[5] && playerIcon === gameBoard[8] ||
-          playerIcon === gameBoard[0] && playerIcon === gameBoard[4] && playerIcon === gameBoard[8] ||
-          playerIcon === gameBoard[2] && playerIcon === gameBoard[4] && playerIcon === gameBoard[6]){
-        }
-      console.log("You win " + 'player');
-      };
-
-      // const checkWin = function(player) {
-      //       if (player === gameBoard[0] && player === gameBoard[1] && player === gameBoard[2] ||
-      //           player === gameBoard[3] && player === gameBoard[4] && player === gameBoard[5] ||
-      //           player === gameBoard[6] && player === gameBoard[7] && player === gameBoard[8] ||
-      //           player === gameBoard[0] && player === gameBoard[3] && player === gameBoard[6] ||
-      //           player === gameBoard[1] && player === gameBoard[4] && player === gameBoard[7] ||
-      //           player === gameBoard[2] && player === gameBoard[5] && player === gameBoard[8] ||
-      //           player === gameBoard[0] && player === gameBoard[4] && player === gameBoard[8] ||
-      //           player === gameBoard[2] && player === gameBoard[4] && player === gameBoard[6]){
-      //         }
-      //       console.log("You win " + player);
-      //       };
-
-
-      // const checkWinx = function(playerIcon) {
-      //       if (playerIcon === gameBoard[0] && playerIcon === gameBoard[1] && playerIcon === gameBoard[2] ||
-      //           playerIcon === gameBoard[3] && playerIcon === gameBoard[4] && playerIcon === gameBoard[5] ||
-      //           playerIcon === gameBoard[6] && playerIcon === gameBoard[7] && playerIcon === gameBoard[8] ||
-      //           playerIcon === gameBoard[0] && playerIcon === gameBoard[3] && playerIcon === gameBoard[6] ||
-      //           playerIcon === gameBoard[1] && playerIcon === gameBoard[4] && playerIcon === gameBoard[7] ||
-      //           playerIcon === gameBoard[2] && playerIcon === gameBoard[5] && playerIcon === gameBoard[8] ||
-      //           playerIcon === gameBoard[0] && playerIcon === gameBoard[4] && playerIcon === gameBoard[8] ||
-      //           playerIcon === gameBoard[2] && playerIcon === gameBoard[4] && playerIcon === gameBoard[6]){
-      //         }
-      //       console.log("You win " + 'player');
-      //       };
-
 
 module.exports = {
-  checkWin,
-  getBoard,
+  
 
 };
