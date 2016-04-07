@@ -3,11 +3,13 @@
 const game = require('./gameplay');
 const user = require('./users');
 
+
 let gameBoard = ['','','','','','','','',''];
 let currentPlayer = '';
 let turn = 0;
 // let players = ['player1', 'player2'];
 let playerIcon = ['X', 'O'];
+let win = false;
 
 // //counts clicks & alternates players
 //   $('.board').one('click', function(){
@@ -20,7 +22,6 @@ let playerIcon = ['X', 'O'];
 //   });
 
   const checkWin = function(gameBoard) {
-    let win = false;
         if (currentPlayer === gameBoard[0] && currentPlayer === gameBoard[1] && currentPlayer === gameBoard[2] ||
             currentPlayer === gameBoard[3] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[5] ||
             currentPlayer === gameBoard[6] && currentPlayer === gameBoard[7] && currentPlayer === gameBoard[8] ||
@@ -29,9 +30,8 @@ let playerIcon = ['X', 'O'];
             currentPlayer === gameBoard[2] && currentPlayer === gameBoard[5] && currentPlayer === gameBoard[8] ||
             currentPlayer === gameBoard[0] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[8] ||
             currentPlayer === gameBoard[2] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[6]){
-
-        console.log("You win " + 'player');
         win = true;
+        console.log("You win " + "player");
           $('.tile').off('click');
       }
 

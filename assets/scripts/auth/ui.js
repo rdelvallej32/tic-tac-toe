@@ -18,7 +18,17 @@ const createGameSuccess = (data) => {
   app.game = data.game;
   console.log(app);
   console.log(data);
+  console.log('Nice, you are starting a new game!');
 };
+
+const updateGameSuccess = (data) => {
+  console.log(data);
+  app.game = data.game;
+  console.log(app);
+  console.log(data);
+  console.log('Nice, you updated the game!');
+};
+
 
 const success = (data) => {
   console.log(data);
@@ -34,4 +44,5 @@ module.exports = {
   signInSuccess,
   signOutSuccess,
   createGameSuccess,
+  updateGameSuccess,
 };

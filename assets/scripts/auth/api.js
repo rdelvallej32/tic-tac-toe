@@ -64,19 +64,19 @@ const gameCreate = (success, failure) => {
   .fail(failure);
 };
 
-// const updateGame = (success, failure, data) => {
-//   //if(!app.user) bad;
-//   $.ajax({
-//     method: "PATCH",
-//     url: app.api + '/games/' + app.user.id,
-//     data,
-//     headers: {
-//       Authorization: 'Token token='+ app.user.token,
-//     },
-//   })
-//   .done(success)
-//   .fail(failure);
-// };
+const updateGame = (success, failure, data) => {
+  //if(!app.user) bad;
+  $.ajax({
+    method: "PATCH",
+    url: app.api + '/games/' + app.game.id,
+    data,
+    headers: {
+      Authorization: 'Token token='+ app.user.token,
+    },
+  })
+  .done(success)
+  .fail(failure);
+};
 
 module.exports = {
   signUp,
@@ -84,5 +84,5 @@ module.exports = {
   signOut,
   passwordChange,
   gameCreate,
-  // updateGame,
+  updateGame,
 };

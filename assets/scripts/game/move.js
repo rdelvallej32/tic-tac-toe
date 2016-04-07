@@ -1,15 +1,16 @@
 'use strict';
 
-const game = require('./gameplay');
-const user = require('./users');
+const app = require('../app-data.js');
+const api = require('../auth/api.js');
+const ui = require('../auth/ui.js');
 
 let gameBoard = ['','','','','','','','',''];
 let currentPlayer = '';
 let turn = 0;
 let playerIcon = ['X', 'O'];
+let win = false;
 
   const checkWin = function(gameBoard) {
-    let win = false;
         if (currentPlayer === gameBoard[0] && currentPlayer === gameBoard[1] && currentPlayer === gameBoard[2] ||
             currentPlayer === gameBoard[3] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[5] ||
             currentPlayer === gameBoard[6] && currentPlayer === gameBoard[7] && currentPlayer === gameBoard[8] ||
@@ -19,17 +20,17 @@ let playerIcon = ['X', 'O'];
             currentPlayer === gameBoard[0] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[8] ||
             currentPlayer === gameBoard[2] && currentPlayer === gameBoard[4] && currentPlayer === gameBoard[6]){
 
-        console.log(currentPlayer + " wins!");
+        console.log("Player " + currentPlayer + " wins!");
         win = true;
           $('.tile').off('click');
       }
 
     };
 
-    const checkTie = function(gameboard) {
-      if(turn >= 9) {
-        console.log("It's a tie! Start a new Game");
-      }
+    const checkTie = function() {
+        if(turn >=9 && win === false) {
+          console.log('Tie game! Start a new game');
+        }
 
     };
 
@@ -49,10 +50,11 @@ const playerMove = function() {
       $(this).data('gameBoard', currentPlayer); ///what is happening
       let attrId = $(this).attr('id');
       gameBoard[attrId] = currentPlayer;
-      // console.log(currentTile.attr('id'));
-      // console.log(currentTile.attr('class'));
+      console.log(currentTile.attr('id'));
+      console.log(currentTile.data('gameBoard'));
       console.log(gameBoard);
       currentTile.text(currentPlayer);
+      // console.log(api.updateGame(ui.success, ui.failure));
       checkWin(gameBoard);
       checkTie(gameBoard);
 
