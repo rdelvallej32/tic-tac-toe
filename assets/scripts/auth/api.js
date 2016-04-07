@@ -51,13 +51,11 @@ const passwordChange = (success, failure, data) => {
   .fail(failure);
 };
 
-const gameCreate = (success, failure, data) => {
+const gameCreate = (success, failure) => {
   //if(!app.user) bad;
   $.ajax({
     method: "POST",
     url: app.api + '/games',
-    data,
-    dataProcessing: false,
     headers: {
       Authorization: 'Token token='+ app.user.token,
     },

@@ -30,11 +30,9 @@ const signCheck = function() {
 };
 
   const gameCheck = function() {
-    $('#eraseBoard').on('submit', function(event){
+    $('#eraseBoard').on('click', function(event){
       event.preventDefault(); ///what data do I put here for user?
-      let data = "data";
-      console.log(data);
-      authApi.gameCreate(authUi.createGameSuccess, authUi.failure, data);
+      authApi.gameCreate(authUi.createGameSuccess, authUi.failure);
   });
 
 
