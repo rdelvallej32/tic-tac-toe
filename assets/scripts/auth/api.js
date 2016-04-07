@@ -51,6 +51,20 @@ const passwordChange = (success, failure, data) => {
   .fail(failure);
 };
 
+const gameCreate = (success, failure, data) => {
+  //if(!app.user) bad;
+  $.ajax({
+    method: "POST",
+    url: app.api + '/games',
+    data,
+    headers: {
+      Authorization: 'Token token='+ app.user.token,
+    },
+  })
+  .done(success)
+  .fail(failure);
+};
+
 module.exports = {
   signUp,
   signIn,
