@@ -22,9 +22,7 @@ let win = false;
 
         console.log("Player " + currentPlayer + " wins!");
         win = true;
-        debugger;
         if(win){
-          debugger;
           $('.available').removeClass('available');
         }
           // $('.tile').off('click');
@@ -40,19 +38,8 @@ let win = false;
     };
 
 const playerMove = function(self) {
-      // debugger;
-      // $('.tile').on('click', function(){
-      //   if(turn % 2 === 0) {
-      //     currentPlayer = playerIcon[0];
-      //     $(this).removeClass('available').addClass('player1');
-      //   }
-      //   else {
-      //     currentPlayer = playerIcon[1];
-      //     $(this).removeClass('available').addClass('player2');
-      //   }
-      //   turn++;
+    if(win === false) {
       let currentTile = $(self);
-        // let currentTile = $(this);
           currentTile.text(currentPlayer);
           // debugger;
           $(this).data('gameBoard', currentPlayer);
@@ -69,17 +56,17 @@ const playerMove = function(self) {
           checkWin(gameBoard);
           checkTie(gameBoard);
 
-
+        }
       };
 
 const clickTurn = function() {
   $('.tile').on('click', function(){
     // debugger;
-    if(turn % 2 === 0) {
+    if(turn % 2 === 0 && win === false) {
       currentPlayer = playerIcon[0];
       $(this).removeClass('available').addClass('player1');
     }
-    else {
+    else if(win === false) {
       currentPlayer = playerIcon[1];
       $(this).removeClass('available').addClass('player2');
     }

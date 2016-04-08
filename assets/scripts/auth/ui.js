@@ -4,6 +4,7 @@ const app = require('../app-data');
 
 const signInSuccess = (data) => {
   app.user = data.user;
+  $('#eraseBoard').click();
   console.log(app);
 };
 
