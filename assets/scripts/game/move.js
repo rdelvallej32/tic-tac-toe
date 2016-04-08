@@ -24,6 +24,8 @@ let win = false;
         win = true;
         if(win){
           $('.available').removeClass('available');
+          api.gameData(ui.success, ui.failure);
+          $('.getGame').text("Player " + currentPlayer + " wins!");
         }
           // $('.tile').off('click');
       }

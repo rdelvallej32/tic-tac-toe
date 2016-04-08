@@ -89,6 +89,22 @@ const updateGame = (success, failure) => {
   .fail(failure);
 };
 
+  const gameData = (success, failure) => {
+  console.log('Started request');
+  $.ajax({
+    method: 'GET',
+    url: app.api + '/games/' + app.game.id,
+
+  headers: {
+    Authorization: 'Token token='+ app.user.token,
+  },
+})
+  .done(success)
+  .fail(failure);
+  console.log('Request queued');
+
+};
+
 module.exports = {
   signUp,
   signIn,
@@ -96,5 +112,6 @@ module.exports = {
   passwordChange,
   gameCreate,
   updateGame,
+  gameData,
   app,
 };
