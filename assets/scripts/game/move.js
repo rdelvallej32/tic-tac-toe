@@ -23,6 +23,7 @@ let win = false;
         console.log("Player " + currentPlayer + " wins!");
         win = true;
         if(win){
+          app.game.over = "true";
           $('.available').removeClass('available');
           api.gameData(ui.getDataSuccess, ui.failure);
           $('.getGame').text("Player " + currentPlayer + " wins!");

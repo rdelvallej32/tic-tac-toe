@@ -32,7 +32,12 @@ const signCheck = function() {
       event.preventDefault();
       let data = getFormFields(this);
       authApi.passwordChange(authUi.success, authUi.failure, data);
-});
+    });
+
+      $('.gameInfo').on('submit', function (event) {
+        event.preventDefault();
+        authApi.gameData(authUi.getDataSuccess, authUi.failure);
+      });
 };
 
   const gameCheck = function() {

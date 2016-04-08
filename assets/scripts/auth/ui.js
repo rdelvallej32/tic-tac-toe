@@ -32,8 +32,9 @@ const updateGameSuccess = (data) => {
 
 const getDataSuccess = (data) => {
   app.game = data.game;
-  $('.gameInfo').text(data.game);
   console.log(app);
+  console.log(data);
+  $('.display').html(app.game.cells);
 };
 
 
