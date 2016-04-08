@@ -64,7 +64,7 @@ const playerMove = function(self) {
       };
 
 const clickTurn = function() {
-  $('.tile').on('click', function(){
+  $('.tile').one('click', function(){
     // debugger;
     if(turn % 2 === 0 && win === false) {
       currentPlayer = playerIcon[0];
