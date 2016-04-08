@@ -36,6 +36,7 @@ let win = false;
     const checkTie = function() {
         if(turn >=9 && win === false) {
           console.log('Tie game! Start a new game');
+          $('.getGame').text('Tie game! Start a new game');
         }
 
     };
