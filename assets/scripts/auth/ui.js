@@ -30,6 +30,12 @@ const updateGameSuccess = (data) => {
   console.log('Nice, you updated the game!');
 };
 
+const getDataSuccess = (data) => {
+  app.game = data.game;
+  $('.gameInfo').text(data.game);
+  console.log(app);
+};
+
 
 const success = (data) => {
   console.log(data);
@@ -46,5 +52,6 @@ module.exports = {
   signOutSuccess,
   createGameSuccess,
   updateGameSuccess,
+  getDataSuccess,
   app,
 };
