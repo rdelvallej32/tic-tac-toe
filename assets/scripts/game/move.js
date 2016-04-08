@@ -92,6 +92,7 @@ const clickTurn = function() {
       $('.tile').each(function() {
         $(this).removeClass('player1').addClass('available');
         $(this).removeClass('player2').addClass('available');
+        $('.getGame').text('');
       });
       $(this).removeAttr('id');
     });
