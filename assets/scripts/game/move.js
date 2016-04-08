@@ -22,7 +22,12 @@ let win = false;
 
         console.log("Player " + currentPlayer + " wins!");
         win = true;
-          $('.tile').off('click');
+        debugger;
+        if(win){
+          debugger;
+          $('.available').removeClass('available');
+        }
+          // $('.tile').off('click');
       }
 
     };
@@ -34,44 +39,69 @@ let win = false;
 
     };
 
-const playerMove = function() {
-  $('.tile').one('click', function(){
+const playerMove = function(self) {
+      // debugger;
+      // $('.tile').on('click', function(){
+      //   if(turn % 2 === 0) {
+      //     currentPlayer = playerIcon[0];
+      //     $(this).removeClass('available').addClass('player1');
+      //   }
+      //   else {
+      //     currentPlayer = playerIcon[1];
+      //     $(this).removeClass('available').addClass('player2');
+      //   }
+      //   turn++;
+      let currentTile = $(self);
+        // let currentTile = $(this);
+          currentTile.text(currentPlayer);
+          // debugger;
+          $(this).data('gameBoard', currentPlayer);
+          let attrId = $(self).attr('id');
+          gameBoard[attrId] = currentPlayer;
+          console.log(gameBoard[attrId]);
+          console.log(attrId);
+          console.log(gameBoard);
+          currentTile.text(currentPlayer);
+          app.index = $(self).attr('id');
+          app.value = currentPlayer;
+          // console.log(api.updateGame(ui.success, ui.failure));
+          api.updateGame(ui.success, ui.failure); ///I'm calling the function here
+          checkWin(gameBoard);
+          checkTie(gameBoard);
+
+
+      };
+
+const clickTurn = function() {
+  $('.tile').on('click', function(){
+    // debugger;
     if(turn % 2 === 0) {
       currentPlayer = playerIcon[0];
       $(this).removeClass('available').addClass('player1');
     }
     else {
       currentPlayer = playerIcon[1];
-      $(this).addClass('player2');
+      $(this).removeClass('available').addClass('player2');
     }
     turn++;
-    let currentTile = $(this);
-      currentTile.text(currentPlayer);
-      $(this).data('gameBoard', currentPlayer);
-      let attrId = $(this).attr('id');
-      gameBoard[attrId] = currentPlayer;
-      console.log(gameBoard[attrId]);
-      console.log(attrId);
-      console.log(gameBoard);
-      currentTile.text(currentPlayer);
-      debugger;
-      app.index = $(this).attr('id');
-      app.value = currentPlayer;
-      // console.log(api.updateGame(ui.success, ui.failure));
-      api.updateGame(ui.success, ui.failure); ///I'm calling the function here
-      checkWin(gameBoard);
-      checkTie(gameBoard);
-
+    let self = this;
+      playerMove(self);
     });
-  };
+};
+
 
   const clearBoard = function() {
     $('.newGame').find('#eraseBoard').on('click', function() {
+      $('.tile').addClass('available');
       $('.tile').each(function() {
         $(this).text('');
+        gameBoard = ['','','','','','','','',''];
+        win = false;
+        turn = 0;
       });
       $('.tile').each(function() {
-        $(this).removeClass('player1').removeClass('player2').addClass('available');
+        $(this).removeClass('player1').addClass('available');
+        $(this).removeClass('player2').addClass('available');
       });
       $(this).removeAttr('id');
     });
@@ -81,4 +111,5 @@ const playerMove = function() {
 module.exports = {
   playerMove,
   clearBoard,
+  clickTurn,
 };

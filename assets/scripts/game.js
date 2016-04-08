@@ -45,30 +45,32 @@ let win = false;
 
     };
 
-const playerMove = function() {
-  $('.tile').one('click', function(){
-    if(turn % 2 === 0) {
-      currentPlayer = playerIcon[0];
-    }
-    else {
-      currentPlayer = playerIcon[1];
-    }
-    turn++;
-    let currentTile = $(this);
-      console.log(currentPlayer);
-      console.log(turn);
-      currentTile.text(currentPlayer);
-      $(this).data('gameBoard', currentPlayer);
-      let attrId = $(this).attr('id');
-      gameBoard[attrId] = currentPlayer;
-      // console.log(currentTile.attr('id'));
-      // console.log(currentTile.attr('class'));
-      console.log(gameBoard);
-      currentTile.text(currentPlayer);
-      checkWin(gameBoard);
-      checkTie(gameBoard);
-    });
-  };
+// const playerMove = function() {
+//   debugger;
+//   $('.tile').on('click', function(){
+//     // debugger;
+//     if(turn % 2 === 0) {
+//       currentPlayer = playerIcon[0];
+//     }
+//     else {
+//       currentPlayer = playerIcon[1];
+//     }
+//     turn++;
+//     let currentTile = $(this);
+//       console.log(currentPlayer);
+//       console.log(turn);
+//       currentTile.text(currentPlayer);
+//       $(this).data('gameBoard', currentPlayer);
+//       let attrId = $(this).attr('id');
+//       gameBoard[attrId] = currentPlayer;
+//       // console.log(currentTile.attr('id'));
+//       // console.log(currentTile.attr('class'));
+//       console.log(gameBoard);
+//       currentTile.text(currentPlayer);
+//       checkWin(gameBoard);
+//       checkTie(gameBoard);
+//     });
+//   };
 
   const clearBoard = function() {
     $('.newGame').find('#eraseBoard').on('click', function() {

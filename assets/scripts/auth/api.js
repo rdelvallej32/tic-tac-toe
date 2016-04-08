@@ -66,6 +66,7 @@ const gameCreate = (success, failure) => {
 };
 
 const updateGame = (success, failure) => {
+  // debugger;
   //if(!app.user) bad;
   $.ajax({
     method: "PATCH",

@@ -2,6 +2,7 @@
 
 // user require with a reference to bundle the file and use it in this file
 // var example = require('./example');
+const app = require('./app-data');
 const authEvents = require('./auth/events.js');
 const gameMove = require('./game/move.js');
 const gameLogic = require('./game/gameplay.js');
@@ -12,6 +13,7 @@ const gameLogic = require('./game/gameplay.js');
 $(() => {
   authEvents.signCheck();
   authEvents.gameCheck();
-  gameMove.playerMove();
+  // gameMove.playerMove();
   gameMove.clearBoard();
+  gameMove.clickTurn();
 });
