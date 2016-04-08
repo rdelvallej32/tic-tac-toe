@@ -390,6 +390,7 @@ webpackJsonp([0],[
 	var checkTie = function checkTie() {
 	  if (turn >= 9 && win === false) {
 	    console.log('Tie game! Start a new game');
+	    $('.getGame').text('Tie game! Start a new game');
 	  }
 	};
 
@@ -442,6 +443,7 @@ webpackJsonp([0],[
 	    $('.tile').each(function () {
 	      $(this).removeClass('player1').addClass('available');
 	      $(this).removeClass('player2').addClass('available');
+	      $('.getGame').text('');
 	    });
 	    $(this).removeAttr('id');
 	  });
